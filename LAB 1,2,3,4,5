@@ -1,0 +1,64 @@
+words = ["abc", "car", "ada", "racecar", "cool"]
+
+for w in words:
+    if w == w[::-1]:
+        print(w)
+        break
+else:
+    print("")
+
+OUTPUT:
+ABA
+
+def findIntersectionValues(nums1, nums2):
+    a = sum(1 for x in nums1 if x in nums2)
+    b = sum(1 for x in nums2 if x in nums1)
+    return [a, b]
+
+nums1 = [2, 3, 2]
+nums2 = [1, 2]
+
+print(findIntersectionValues(nums1, nums2))
+
+OUTPUT:
+[2,1]
+
+def sumCounts(nums):
+    ans = 0
+    n = len(nums)
+
+    for i in range(n):
+        s = set()
+        for j in range(i, n):
+            s.add(nums[j])
+            ans += len(s) ** 2
+
+    return ans
+
+nums = [1, 2, 1]
+print(sumCounts(nums))
+OUTPUT:
+15
+
+def countPairs(nums, k):
+    c = 0
+    n = len(nums)
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            if nums[i] == nums[j] and (i * j) % k == 0:
+                c += 1
+
+    return c
+
+nums = [3,1,2,2,2,1,3]
+k = 2
+
+print(countPairs(nums, k))
+OUTPUT:
+4
+
+arr = [1, 2, 3, 4, 5]
+print(max(arr))
+OUTPUT:
+5
