@@ -1,0 +1,84 @@
+5.def find_max(nums):
+    if not nums:
+        return "List is empty"
+
+    nums.sort()      # Efficient built-in sort (Timsort)
+    return nums[-1]  # Last element is the maximum
+
+# Test Cases
+print(find_max([]))    
+print(find_max([5]))
+OUPUT:
+List in empty:5
+
+6.def unique_elements(nums):
+    return list(set(nums))
+
+nums = [3, 7, 3, 5, 2, 5, 9, 2]
+print(unique_elements(nums))
+ouptut:
+[3, 7, 5, 2, 9]
+
+
+7.def bubble_sort(arr):
+    n = len(arr)
+
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+    return arr
+
+8.arr = [64, 34, 25, 12, 22, 11, 90]
+print(bubble_sort(arr))
+output:
+[11, 12, 22, 25, 34, 64, 90]
+
+
+9.arr = sorted([3,4,6,-9,10,8,9,30])
+key = int(input())
+
+l, r = 0, len(arr)-1
+
+while l <= r:
+    m = (l+r)//2
+    if arr[m] == key:
+        print(f"Element {key} is found at position {m+1}")
+        break
+    elif arr[m] < key:
+        l = m+1
+    else:
+        r = m-1
+else:
+    print(f"Element {key} is not found")
+output:
+Element 10 is found at position 5
+Element 100 is not found
+
+10.def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+
+    i = j = 0
+    res = []
+
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            res.append(left[i])
+            i += 1
+        else:
+            res.append(right[j])
+            j += 1
+
+    return res + left[i:] + right[j:]
+
+nums = [5, 2, 3, 1]
+print(merge_sort(nums))
+output:
+[1, 2, 3, 5]
+
