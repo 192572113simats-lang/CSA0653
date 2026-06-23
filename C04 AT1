@@ -1,0 +1,53 @@
+NAME:P.Adhavan
+REG NO:192572113
+
+2.
+def find(x):
+if parent[x] != x:
+parent[x] = find(parent[x])
+return parent[x]
+
+n, m = map(int, input().split())
+edges = [tuple(map(int, input().split())) for _ in range(m)]
+
+parent = list(range(n))
+cost = 0
+
+for u, v, w in sorted(edges, key=lambda x: x[2]):
+    pu, pv = find(u), find(v)
+    if pu != pv:
+        parent[pu] = pv
+        cost += w
+
+print("MST Cost:", cost)
+output:
+MST Cost: 13
+
+1.
+ import heapq
+
+n,m=map(int,input().split())
+g=[[] for _ in range(n)]
+
+for _ in range(m):
+    u,v,w=map(int,input().split())
+    g[u].append((w,v))
+    g[v].append((w,u))
+
+h=[(0,0)]
+vis=[0]*n
+cost=0
+
+while h:
+    w,u=heapq.heappop(h)
+    if vis[u]: continue
+    vis[u]=1
+    cost+=w
+    for wt,v in g[u]:
+        if not vis[v]:
+            heapq.heappush(h,(wt,v))
+
+print(cost)
+output:
+
+Total weight =13
