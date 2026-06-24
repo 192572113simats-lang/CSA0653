@@ -1,0 +1,73 @@
+NAME:P.Adhavan
+REG NO:192572113
+1.Algorithm NQueens(N)
+
+function IsSafe(row, col)
+    Check column and both diagonals
+    return True if no queen attacks
+
+function Solve(row)
+    if row = N then
+        print solution
+        return True
+
+    for col = 0 to N-1
+        if IsSafe(row, col) then
+            Place queen at (row, col)
+            if Solve(row + 1) then
+                return True
+            Remove queeN
+
+    return False
+
+Begin
+    Initialize empty N × N board
+    Solve(0)
+End
+2.GraphColor(v)
+
+    if v > V then
+        return True
+
+    for color = 1 to m do
+        if Safe(v, color) then
+            assign color to v
+
+            if GraphColor(v + 1) then
+                return True
+
+            remove color from v   
+
+    return False
+
+
+Safe(v, color)
+
+    for each adjacent vertex u of v
+        if u has same color
+            return False
+
+    return True
+3.minCost 
+
+TSP(city, count, currCost)
+
+    if currCost >= minCost then
+        return          
+
+    if count = N and cost[city][0] > 0 then
+        minCost ← min(minCost, currCost + cost[city][0])
+        return
+
+    for next ← 0 to N-1 do
+        if not visited[next] and cost[city][next] > 0 then
+
+            visited[next] ← True
+
+            TSP(next,
+                count + 1,
+                currCost + cost[city][next])
+
+            visited[next] 
+
+End
