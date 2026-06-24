@@ -1,0 +1,76 @@
+NAME:P.Adhavan
+REG NO:192572113
+1.Job Scheduling Using Backtracking 
+
+Problem:
+Assign jobs to employees so that all jobs are completed before their deadlines, employees have the required skills, and no employee works on more than one job at the same time.
+
+ Constraints
+
+1. Skill Requirement: Employee must be qualified for the job.
+2. Deadline: Job must finish before its deadline.
+3. Resource Availability: An employee cannot handle overlapping jobs.
+4. Working Hours: Jobs must fit within employee availability.
+
+ Constraint Priority
+
+1. Skill matching (mandatory)
+2. Deadline satisfaction
+3. No schedule conflicts
+4. Employee availability
+
+ Backtracking Solution
+
+1. Select an unassigned job.
+2. Try assigning it to a qualified employee and time slot.
+3. Check all constraints.
+4. If valid, recursively assign the next job.
+5. If a conflict occurs, undo the assignment (backtrack) and try another option.
+
+ Pruning Techniques
+
+* Reject employees without required skills.
+* Reject assignments that miss deadlines.
+* Reject overlapping schedules.
+* Use forward checking to ensure remaining jobs still have feasible assignments.
+
+2. Exam Timetabling Using Graph Coloring 
+
+Problem: Schedule university exams so that no student has overlapping exams while respecting room capacities and availability.
+
+
+Hard Constraints:
+
+1. Exams with common students cannot be in the same time slot.
+2. Room capacity must be sufficient for the assigned exam.
+3. A room can host only one exam per time slot.
+4. Exams must be assigned to available time slots.
+
+Soft Constraints:
+
+* Minimize the number of time slots used.
+* Avoid consecutive exams for students.
+* Improve room utilization.
+
+ Graph Coloring Model
+
+* Vertex: Exam
+* Edge: Conflict between two exams (shared students)
+* Color: Time slot
+
+The goal is to assign different colors (time slots) to connected vertices (conflicting exams).
+
+1. Build a conflict graph from student enrollments.
+2. Assign time slots using graph coloring.
+3. Use backtracking to try valid slot assignments.
+4. Apply CSP techniques such as:
+
+Correctness
+
+* Adjacent vertices always receive different colors, ensuring no student has overlapping exams.
+* Room capacity and availability checks ensure feasible room assignments.
+* Therefore, the timetable is conflict-free and valid.
+
+
+
+ 
